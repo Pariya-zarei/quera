@@ -1,3 +1,19 @@
-from django.contrib import admin
+from learning.models import Class , Bootcamp
+from django.contrib.admin import register, ModelAdmin
 
-# Register your models here.
+
+
+@register(Class)
+class ClassAdmin(ModelAdmin):
+    list_display = [
+        "name",
+    ]
+
+@register(Bootcamp)
+class BootcampAdmin(ModelAdmin):
+    list_display=[
+        "name",
+        "start_date",
+        "duration",
+        "price"
+    ]
